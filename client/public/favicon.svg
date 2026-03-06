@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Background -->
+  <rect width="64" height="64" rx="12" fill="#2D5016"/>
+  <!-- House shape -->
+  <path d="M32 14L14 30H18V50H46V30H50L32 14Z" fill="white" opacity="0.95"/>
+  <!-- Door -->
+  <rect x="27" y="38" width="10" height="12" rx="1" fill="#2D5016"/>
+  <!-- Window -->
+  <rect x="20" y="33" width="8" height="7" rx="1" fill="#C9A84C"/>
+  <rect x="36" y="33" width="8" height="7" rx="1" fill="#C9A84C"/>
+  <!-- Gold accent line at bottom -->
+  <rect x="14" y="52" width="36" height="3" rx="1.5" fill="#C9A84C"/>
+</svg>
