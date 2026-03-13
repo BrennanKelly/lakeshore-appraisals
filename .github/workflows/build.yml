@@ -15,6 +15,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install Node.js
         uses: actions/setup-node@v4
@@ -23,11 +25,9 @@ jobs:
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
-        with:
-          version: 10
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install
 
       - name: Build frontend
         run: pnpm build
@@ -41,7 +41,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add client/dist/ -f
           if git diff --staged --quiet; then
-            echo "No changes to commit"
+            echo "No changes to commit — build output unchanged"
           else
             git commit -m "chore: update built static files [skip ci]"
             git push
