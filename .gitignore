@@ -3,9 +3,11 @@
 .pnpm-store/
 
 # Build outputs
-dist/
 build/
 *.dist
+# Ignore root dist (server build) but allow client/dist (static deploy)
+/dist/
+!client/dist/
 
 # Environment variables
 .env
