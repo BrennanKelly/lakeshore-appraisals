@@ -83,10 +83,10 @@ export default function ServiceAreas() {
       {/* Page header */}
       <section className="bg-[oklch(0.22_0.005_260)] text-white py-16" aria-label="Service areas header">
         <div className="container">
-          <div className="section-label text-[oklch(0.72_0.12_85)] mb-3">Where We Serve</div>
+          <div className="section-label text-[oklch(0.72_0.12_245)] mb-3">Where We Serve</div>
           <h1 className="text-3xl md:text-5xl font-black text-white mb-4" style={{ fontFamily: "'Merriweather', serif" }}>
             Real Estate Appraisals Across<br />
-            <span className="text-[oklch(0.72_0.12_85)]">Southwest Michigan</span>
+            <span className="text-[oklch(0.72_0.12_245)]">Southwest Michigan</span>
           </h1>
           <p className="text-[oklch(0.78_0.005_260)] max-w-2xl leading-relaxed">
             Lake Shore Real Estate Appraisals serves homeowners, lenders, attorneys, and real estate
@@ -109,8 +109,8 @@ export default function ServiceAreas() {
               <article key={area.slug} id={area.slug} className={`grid grid-cols-1 lg:grid-cols-3 gap-10 items-start pb-16 ${idx < primaryAreas.length - 1 ? "border-b border-border" : ""}`}>
                 <div className="lg:col-span-2">
                   <div className="flex items-center gap-3 mb-3">
-                    <MapPin size={18} className="text-[oklch(0.32_0.09_140)]" />
-                    <span className="text-sm font-bold uppercase tracking-widest text-[oklch(0.32_0.09_140)]" style={{ fontFamily: "'Lato', sans-serif" }}>
+                    <MapPin size={18} className="text-[oklch(0.48_0.14_245)]" />
+                    <span className="text-sm font-bold uppercase tracking-widest text-[oklch(0.48_0.14_245)]" style={{ fontFamily: "'Lato', sans-serif" }}>
                       {area.county}
                     </span>
                   </div>
@@ -121,26 +121,26 @@ export default function ServiceAreas() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
                     <div>
-                      <div className="text-xs font-bold uppercase tracking-widest text-[oklch(0.32_0.09_140)] mb-3" style={{ fontFamily: "'Lato', sans-serif" }}>
+                      <div className="text-xs font-bold uppercase tracking-widest text-[oklch(0.48_0.14_245)] mb-3" style={{ fontFamily: "'Lato', sans-serif" }}>
                         Services Available
                       </div>
                       <ul className="space-y-1.5">
                         {area.services.map((s) => (
                           <li key={s} className="flex items-center gap-2 text-sm text-[oklch(0.35_0.005_260)]">
-                            <CheckCircle2 size={13} className="text-[oklch(0.32_0.09_140)] flex-shrink-0" />
+                            <CheckCircle2 size={13} className="text-[oklch(0.48_0.14_245)] flex-shrink-0" />
                             {s}
                           </li>
                         ))}
                       </ul>
                     </div>
                     <div>
-                      <div className="text-xs font-bold uppercase tracking-widest text-[oklch(0.32_0.09_140)] mb-3" style={{ fontFamily: "'Lato', sans-serif" }}>
+                      <div className="text-xs font-bold uppercase tracking-widest text-[oklch(0.48_0.14_245)] mb-3" style={{ fontFamily: "'Lato', sans-serif" }}>
                         Communities Served
                       </div>
                       <ul className="space-y-1.5">
                         {area.neighborhoods.map((n) => (
                           <li key={n} className="flex items-center gap-2 text-sm text-[oklch(0.35_0.005_260)]">
-                            <span className="w-1 h-1 rounded-full bg-[oklch(0.72_0.12_85)] flex-shrink-0" />
+                            <span className="w-1 h-1 rounded-full bg-[oklch(0.72_0.12_245)] flex-shrink-0" />
                             {n}
                           </li>
                         ))}
@@ -156,7 +156,7 @@ export default function ServiceAreas() {
 
                 <div className="lg:col-span-1">
                   <div className="bg-[oklch(0.96_0.008_90)] rounded-lg p-6 mb-4">
-                    <div className="text-xs font-bold uppercase tracking-widest text-[oklch(0.32_0.09_140)] mb-4" style={{ fontFamily: "'Lato', sans-serif" }}>
+                    <div className="text-xs font-bold uppercase tracking-widest text-[oklch(0.48_0.14_245)] mb-4" style={{ fontFamily: "'Lato', sans-serif" }}>
                       Market Snapshot
                     </div>
                     <div className="space-y-3">
@@ -212,9 +212,9 @@ export default function ServiceAreas() {
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mb-10">
             {additionalAreas.map((area) => (
-              <div key={area.city} className="bg-white rounded-md p-4 border border-border hover:border-[oklch(0.32_0.09_140)] transition-colors">
+              <div key={area.city} className="bg-white rounded-md p-4 border border-border hover:border-[oklch(0.48_0.14_245)] transition-colors">
                 <div className="flex items-center gap-2 mb-1">
-                  <MapPin size={13} className="text-[oklch(0.32_0.09_140)]" />
+                  <MapPin size={13} className="text-[oklch(0.48_0.14_245)]" />
                   <span className="font-bold text-sm text-[oklch(0.22_0.005_260)]">{area.city}, MI</span>
                 </div>
                 <div className="text-xs text-muted-foreground">{area.county}</div>

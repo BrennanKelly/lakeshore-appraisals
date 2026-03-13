@@ -152,10 +152,10 @@ export default function Services() {
       {/* Page header */}
       <section className="bg-[oklch(0.22_0.005_260)] text-white py-16" aria-label="Services page header">
         <div className="container">
-          <div className="section-label text-[oklch(0.72_0.12_85)] mb-3">Our Services</div>
+          <div className="section-label text-[oklch(0.72_0.12_245)] mb-3">Our Services</div>
           <h1 className="text-3xl md:text-5xl font-black text-white mb-4" style={{ fontFamily: "'Merriweather', serif" }}>
             Real Estate Appraisal Services<br />
-            <span className="text-[oklch(0.72_0.12_85)]">in Southwest Michigan</span>
+            <span className="text-[oklch(0.72_0.12_245)]">in Southwest Michigan</span>
           </h1>
           <p className="text-[oklch(0.78_0.005_260)] max-w-2xl leading-relaxed">
             From residential home appraisals to complex commercial valuations, Lake Shore Real Estate
@@ -178,11 +178,11 @@ export default function Services() {
                 {/* Icon + title */}
                 <div className="lg:col-span-1">
                   <div className="flex items-start gap-4 mb-4">
-                    <div className="w-12 h-12 rounded-lg bg-[oklch(0.32_0.09_140)] flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 rounded-lg bg-[oklch(0.48_0.14_245)] flex items-center justify-center flex-shrink-0">
                       <service.icon size={22} className="text-white" />
                     </div>
                     <div>
-                      <div className="text-xs font-bold uppercase tracking-widest text-[oklch(0.32_0.09_140)] mb-1" style={{ fontFamily: "'Lato', sans-serif" }}>
+                      <div className="text-xs font-bold uppercase tracking-widest text-[oklch(0.48_0.14_245)] mb-1" style={{ fontFamily: "'Lato', sans-serif" }}>
                         {String(idx + 1).padStart(2, "0")}
                       </div>
                       <h2 className="text-xl font-black text-[oklch(0.22_0.005_260)]" style={{ fontFamily: "'Merriweather', serif" }}>
@@ -192,7 +192,7 @@ export default function Services() {
                     </div>
                   </div>
                   <div className="bg-[oklch(0.96_0.008_90)] rounded-md p-4">
-                    <div className="text-xs font-bold uppercase tracking-widest text-[oklch(0.32_0.09_140)] mb-2" style={{ fontFamily: "'Lato', sans-serif" }}>
+                    <div className="text-xs font-bold uppercase tracking-widest text-[oklch(0.48_0.14_245)] mb-2" style={{ fontFamily: "'Lato', sans-serif" }}>
                       Typical Turnaround
                     </div>
                     <div className="text-lg font-black text-[oklch(0.22_0.005_260)]" style={{ fontFamily: "'Merriweather', serif" }}>
@@ -211,7 +211,7 @@ export default function Services() {
                     <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       {service.uses.map((use) => (
                         <li key={use} className="flex items-center gap-2 text-sm text-[oklch(0.35_0.005_260)]">
-                          <CheckCircle2 size={14} className="text-[oklch(0.32_0.09_140)] flex-shrink-0" />
+                          <CheckCircle2 size={14} className="text-[oklch(0.48_0.14_245)] flex-shrink-0" />
                           {use}
                         </li>
                       ))}
@@ -245,10 +245,10 @@ export default function Services() {
                   { step: "04", title: "Receive Your Report", desc: "A comprehensive, USPAP-compliant appraisal report is delivered electronically within your agreed turnaround window." },
                 ].map((item) => (
                   <div key={item.step} className="flex gap-5">
-                    <div className="text-3xl font-black text-[oklch(0.32_0.09_140/0.2)] flex-shrink-0 w-12 text-right" style={{ fontFamily: "'Merriweather', serif" }}>
+                    <div className="text-3xl font-black text-[oklch(0.48_0.14_245/0.2)] flex-shrink-0 w-12 text-right" style={{ fontFamily: "'Merriweather', serif" }}>
                       {item.step}
                     </div>
-                    <div className="border-l-4 border-[oklch(0.32_0.09_140)] pl-5">
+                    <div className="border-l-4 border-[oklch(0.48_0.14_245)] pl-5">
                       <div className="font-bold text-[oklch(0.22_0.005_260)] mb-1" style={{ fontFamily: "'Lato', sans-serif" }}>{item.title}</div>
                       <div className="text-sm text-muted-foreground">{item.desc}</div>
                     </div>
@@ -270,7 +270,7 @@ export default function Services() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-[oklch(0.32_0.09_140)]" aria-label="Order appraisal CTA">
+      <section className="py-16 bg-[oklch(0.48_0.14_245)]" aria-label="Order appraisal CTA">
         <div className="container text-center">
           <h2 className="text-2xl md:text-3xl font-black text-white mb-4" style={{ fontFamily: "'Merriweather', serif" }}>
             Ready to Order Your Appraisal?

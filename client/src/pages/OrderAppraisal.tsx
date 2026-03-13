@@ -136,7 +136,7 @@ export default function OrderAppraisal() {
       {/* Page header */}
       <section className="bg-[oklch(0.22_0.005_260)] text-white py-12" aria-label="Order appraisal header">
         <div className="container">
-          <div className="section-label text-[oklch(0.72_0.12_85)] mb-2">Order Online</div>
+          <div className="section-label text-[oklch(0.72_0.12_245)] mb-2">Order Online</div>
           <h1 className="text-3xl md:text-4xl font-black text-white mb-3" style={{ fontFamily: "'Merriweather', serif" }}>
             Order a Real Estate Appraisal
           </h1>
@@ -158,15 +158,15 @@ export default function OrderAppraisal() {
                     <div key={label} className="flex flex-col items-center gap-1.5 flex-1">
                       <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-colors ${
                         i + 1 < step
-                          ? "bg-[oklch(0.32_0.09_140)] text-white"
+                          ? "bg-[oklch(0.48_0.14_245)] text-white"
                           : i + 1 === step
-                          ? "bg-[oklch(0.72_0.12_85)] text-[oklch(0.22_0.005_260)]"
+                          ? "bg-[oklch(0.72_0.12_245)] text-[oklch(0.22_0.005_260)]"
                           : "bg-[oklch(0.88_0.008_90)] text-muted-foreground"
                       }`}>
                         {i + 1 < step ? <CheckCircle2 size={16} /> : i + 1}
                       </div>
                       <span className={`text-xs font-bold uppercase tracking-wide hidden sm:block ${
-                        i + 1 === step ? "text-[oklch(0.32_0.09_140)]" : "text-muted-foreground"
+                        i + 1 === step ? "text-[oklch(0.48_0.14_245)]" : "text-muted-foreground"
                       }`} style={{ fontFamily: "'Lato', sans-serif" }}>
                         {label}
                       </span>
@@ -175,7 +175,7 @@ export default function OrderAppraisal() {
                 </div>
                 <div className="h-1.5 bg-[oklch(0.88_0.008_90)] rounded-full overflow-hidden">
                   <div
-                    className="h-full bg-[oklch(0.32_0.09_140)] rounded-full transition-all duration-500"
+                    className="h-full bg-[oklch(0.48_0.14_245)] rounded-full transition-all duration-500"
                     style={{ width: `${((step - 1) / (totalSteps - 1)) * 100}%` }}
                   />
                 </div>
@@ -185,8 +185,8 @@ export default function OrderAppraisal() {
             {/* Success state */}
             {submitted ? (
               <div className="bg-white rounded-xl border border-border p-12 text-center shadow-sm">
-                <div className="w-16 h-16 rounded-full bg-[oklch(0.32_0.09_140/0.1)] flex items-center justify-center mx-auto mb-6">
-                  <CheckCircle2 size={36} className="text-[oklch(0.32_0.09_140)]" />
+                <div className="w-16 h-16 rounded-full bg-[oklch(0.48_0.14_245/0.1)] flex items-center justify-center mx-auto mb-6">
+                  <CheckCircle2 size={36} className="text-[oklch(0.48_0.14_245)]" />
                 </div>
                 <h2 className="text-2xl font-black text-[oklch(0.22_0.005_260)] mb-3" style={{ fontFamily: "'Merriweather', serif" }}>
                   Appraisal Order Received!
@@ -231,22 +231,22 @@ export default function OrderAppraisal() {
                             onClick={() => update("appraisalType", type.id)}
                             className={`flex items-start gap-4 p-4 rounded-lg border-2 text-left transition-all ${
                               form.appraisalType === type.id
-                                ? "border-[oklch(0.32_0.09_140)] bg-[oklch(0.32_0.09_140/0.05)]"
-                                : "border-border hover:border-[oklch(0.32_0.09_140/0.4)]"
+                                ? "border-[oklch(0.48_0.14_245)] bg-[oklch(0.48_0.14_245/0.05)]"
+                                : "border-border hover:border-[oklch(0.48_0.14_245/0.4)]"
                             }`}
                           >
                             <div className={`w-9 h-9 rounded-md flex items-center justify-center flex-shrink-0 ${
-                              form.appraisalType === type.id ? "bg-[oklch(0.32_0.09_140)]" : "bg-[oklch(0.96_0.008_90)]"
+                              form.appraisalType === type.id ? "bg-[oklch(0.48_0.14_245)]" : "bg-[oklch(0.96_0.008_90)]"
                             }`}>
-                              <type.icon size={17} className={form.appraisalType === type.id ? "text-white" : "text-[oklch(0.32_0.09_140)]"} />
+                              <type.icon size={17} className={form.appraisalType === type.id ? "text-white" : "text-[oklch(0.48_0.14_245)]"} />
                             </div>
                             <div className="flex-1 min-w-0">
                               <div className="font-bold text-sm text-[oklch(0.22_0.005_260)]">{type.title}</div>
                               <div className="text-xs text-muted-foreground mt-0.5">{type.desc}</div>
-                              <div className="text-xs font-bold text-[oklch(0.32_0.09_140)] mt-1">⏱ {type.turnaround}</div>
+                              <div className="text-xs font-bold text-[oklch(0.48_0.14_245)] mt-1">⏱ {type.turnaround}</div>
                             </div>
                             {form.appraisalType === type.id && (
-                              <CheckCircle2 size={16} className="text-[oklch(0.32_0.09_140)] flex-shrink-0 mt-0.5" />
+                              <CheckCircle2 size={16} className="text-[oklch(0.48_0.14_245)] flex-shrink-0 mt-0.5" />
                             )}
                           </button>
                         ))}
@@ -378,7 +378,7 @@ export default function OrderAppraisal() {
                             id="rush"
                             checked={form.rush}
                             onChange={(e) => update("rush", e.target.checked)}
-                            className="w-4 h-4 accent-[oklch(0.32_0.09_140)]"
+                            className="w-4 h-4 accent-[oklch(0.48_0.14_245)]"
                           />
                           <label htmlFor="rush" className="text-sm font-bold text-[oklch(0.22_0.005_260)] cursor-pointer">
                             Rush Order (24-hour turnaround)
@@ -407,10 +407,10 @@ export default function OrderAppraisal() {
                       <p className="text-sm text-muted-foreground mb-7">Please review your appraisal request before submitting.</p>
                       <div className="space-y-5">
                         <div className="bg-[oklch(0.96_0.008_90)] rounded-lg p-5">
-                          <div className="text-xs font-bold uppercase tracking-widest text-[oklch(0.32_0.09_140)] mb-3" style={{ fontFamily: "'Lato', sans-serif" }}>Appraisal Type</div>
+                          <div className="text-xs font-bold uppercase tracking-widest text-[oklch(0.48_0.14_245)] mb-3" style={{ fontFamily: "'Lato', sans-serif" }}>Appraisal Type</div>
                           {selectedType && (
                             <div className="flex items-center gap-3">
-                              <div className="w-9 h-9 rounded-md bg-[oklch(0.32_0.09_140)] flex items-center justify-center">
+                              <div className="w-9 h-9 rounded-md bg-[oklch(0.48_0.14_245)] flex items-center justify-center">
                                 <selectedType.icon size={16} className="text-white" />
                               </div>
                               <div>
@@ -421,20 +421,20 @@ export default function OrderAppraisal() {
                           )}
                         </div>
                         <div className="bg-[oklch(0.96_0.008_90)] rounded-lg p-5">
-                          <div className="text-xs font-bold uppercase tracking-widest text-[oklch(0.32_0.09_140)] mb-3" style={{ fontFamily: "'Lato', sans-serif" }}>Property</div>
+                          <div className="text-xs font-bold uppercase tracking-widest text-[oklch(0.48_0.14_245)] mb-3" style={{ fontFamily: "'Lato', sans-serif" }}>Property</div>
                           <div className="text-sm text-[oklch(0.22_0.005_260)] font-bold">{form.propertyAddress}</div>
                           <div className="text-sm text-muted-foreground">{form.propertyCity}, {form.propertyState} {form.propertyZip}</div>
                           {form.propertyType && <div className="text-sm text-muted-foreground mt-1">{form.propertyType} · {form.intendedUse}</div>}
                         </div>
                         <div className="bg-[oklch(0.96_0.008_90)] rounded-lg p-5">
-                          <div className="text-xs font-bold uppercase tracking-widest text-[oklch(0.32_0.09_140)] mb-3" style={{ fontFamily: "'Lato', sans-serif" }}>Contact</div>
+                          <div className="text-xs font-bold uppercase tracking-widest text-[oklch(0.48_0.14_245)] mb-3" style={{ fontFamily: "'Lato', sans-serif" }}>Contact</div>
                           <div className="text-sm text-[oklch(0.22_0.005_260)] font-bold">{form.firstName} {form.lastName}</div>
                           <div className="text-sm text-muted-foreground">{form.email}</div>
                           <div className="text-sm text-muted-foreground">{form.phone}</div>
                           {form.company && <div className="text-sm text-muted-foreground">{form.company}</div>}
                         </div>
                       </div>
-                      <div className="mt-6 p-4 bg-[oklch(0.32_0.09_140/0.06)] border border-[oklch(0.32_0.09_140/0.2)] rounded-lg text-sm text-[oklch(0.35_0.005_260)]">
+                      <div className="mt-6 p-4 bg-[oklch(0.48_0.14_245/0.06)] border border-[oklch(0.48_0.14_245/0.2)] rounded-lg text-sm text-[oklch(0.35_0.005_260)]">
                         By submitting this form, you authorize Lake Shore Real Estate Appraisals to contact you regarding your appraisal request. We will not share your information with third parties.
                       </div>
                     </div>
@@ -474,7 +474,7 @@ export default function OrderAppraisal() {
                   { icon: Shield, title: "Licensed & Insured", desc: "Michigan certified appraisers, fully insured" },
                 ].map((item) => (
                   <div key={item.title} className="flex items-start gap-3 bg-white rounded-lg p-4 border border-border">
-                    <item.icon size={18} className="text-[oklch(0.32_0.09_140)] flex-shrink-0 mt-0.5" />
+                    <item.icon size={18} className="text-[oklch(0.48_0.14_245)] flex-shrink-0 mt-0.5" />
                     <div>
                       <div className="text-sm font-bold text-[oklch(0.22_0.005_260)]">{item.title}</div>
                       <div className="text-xs text-muted-foreground">{item.desc}</div>

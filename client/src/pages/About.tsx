@@ -58,10 +58,10 @@ export default function About() {
       {/* Page header */}
       <section className="bg-[oklch(0.22_0.005_260)] text-white py-16" aria-label="About page header">
         <div className="container">
-          <div className="section-label text-[oklch(0.72_0.12_85)] mb-3">About Us</div>
+          <div className="section-label text-[oklch(0.72_0.12_245)] mb-3">About Us</div>
           <h1 className="text-3xl md:text-5xl font-black text-white mb-4" style={{ fontFamily: "'Merriweather', serif" }}>
             Southwest Michigan's Trusted<br />
-            <span className="text-[oklch(0.72_0.12_85)]">Real Estate Appraisers</span>
+            <span className="text-[oklch(0.72_0.12_245)]">Real Estate Appraisers</span>
           </h1>
           <p className="text-[oklch(0.78_0.005_260)] max-w-2xl leading-relaxed">
             For over 20 years, Lake Shore Real Estate Appraisals has provided accurate, impartial,
@@ -115,7 +115,7 @@ export default function About() {
                 style={{ maxHeight: "520px" }}
                 loading="lazy"
               />
-              <div className="absolute -bottom-6 -right-6 bg-[oklch(0.32_0.09_140)] text-white p-5 rounded-lg shadow-xl">
+              <div className="absolute -bottom-6 -right-6 bg-[oklch(0.48_0.14_245)] text-white p-5 rounded-lg shadow-xl">
                 <div className="text-3xl font-black" style={{ fontFamily: "'Merriweather', serif" }}>5,000+</div>
                 <div className="text-xs font-bold uppercase tracking-widest" style={{ fontFamily: "'Lato', sans-serif" }}>Appraisals<br />Completed</div>
               </div>
@@ -135,9 +135,9 @@ export default function About() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {credentials.map((cred) => (
-              <div key={cred.title} className="bg-white rounded-lg p-7 border border-border hover:border-[oklch(0.32_0.09_140)] hover:shadow-md transition-all">
+              <div key={cred.title} className="bg-white rounded-lg p-7 border border-border hover:border-[oklch(0.48_0.14_245)] hover:shadow-md transition-all">
                 <div className="flex items-start gap-4">
-                  <div className="w-11 h-11 rounded-lg bg-[oklch(0.32_0.09_140)] flex items-center justify-center flex-shrink-0">
+                  <div className="w-11 h-11 rounded-lg bg-[oklch(0.48_0.14_245)] flex items-center justify-center flex-shrink-0">
                     <cred.icon size={20} className="text-white" />
                   </div>
                   <div>
@@ -210,7 +210,7 @@ export default function About() {
                     <span className="font-bold text-[oklch(0.22_0.005_260)] pr-4" style={{ fontFamily: "'Lato', sans-serif" }}>
                       {faq.q}
                     </span>
-                    <span className="text-[oklch(0.32_0.09_140)] flex-shrink-0 text-xl leading-none group-open:rotate-45 transition-transform">+</span>
+                    <span className="text-[oklch(0.48_0.14_245)] flex-shrink-0 text-xl leading-none group-open:rotate-45 transition-transform">+</span>
                   </summary>
                   <div className="px-6 pb-6 text-sm text-[oklch(0.35_0.005_260)] leading-relaxed border-t border-border pt-4">
                     {faq.a}
@@ -223,7 +223,7 @@ export default function About() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-[oklch(0.32_0.09_140)]" aria-label="Contact CTA">
+      <section className="py-16 bg-[oklch(0.48_0.14_245)]" aria-label="Contact CTA">
         <div className="container text-center">
           <h2 className="text-2xl md:text-3xl font-black text-white mb-4" style={{ fontFamily: "'Merriweather', serif" }}>
             Ready to Work with Southwest Michigan's Best?
