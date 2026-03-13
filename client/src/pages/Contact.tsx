@@ -70,10 +70,10 @@ export default function Contact() {
       {/* Page header */}
       <section className="bg-[oklch(0.22_0.005_260)] text-white py-16" aria-label="Contact page header">
         <div className="container">
-          <div className="section-label text-[oklch(0.72_0.12_85)] mb-3">Get In Touch</div>
+          <div className="section-label text-[oklch(0.72_0.12_245)] mb-3">Get In Touch</div>
           <h1 className="text-3xl md:text-5xl font-black text-white mb-4" style={{ fontFamily: "'Merriweather', serif" }}>
             Contact Lake Shore<br />
-            <span className="text-[oklch(0.72_0.12_85)]">Real Estate Appraisals</span>
+            <span className="text-[oklch(0.72_0.12_245)]">Real Estate Appraisals</span>
           </h1>
           <p className="text-[oklch(0.78_0.005_260)] max-w-xl leading-relaxed">
             Have a question about our services or ready to order an appraisal? We're here to help.
@@ -93,17 +93,17 @@ export default function Contact() {
               <div className="space-y-6">
                 {contactInfo.map((item) => (
                   <div key={item.label} className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-lg bg-[oklch(0.32_0.09_140)] flex items-center justify-center flex-shrink-0">
+                    <div className="w-10 h-10 rounded-lg bg-[oklch(0.48_0.14_245)] flex items-center justify-center flex-shrink-0">
                       <item.icon size={17} className="text-white" />
                     </div>
                     <div>
-                      <div className="text-xs font-bold uppercase tracking-widest text-[oklch(0.32_0.09_140)] mb-0.5" style={{ fontFamily: "'Lato', sans-serif" }}>
+                      <div className="text-xs font-bold uppercase tracking-widest text-[oklch(0.48_0.14_245)] mb-0.5" style={{ fontFamily: "'Lato', sans-serif" }}>
                         {item.label}
                       </div>
                       {item.href ? (
                         <a
                           href={item.href}
-                          className="font-bold text-[oklch(0.22_0.005_260)] hover:text-[oklch(0.32_0.09_140)] transition-colors text-sm"
+                          className="font-bold text-[oklch(0.22_0.005_260)] hover:text-[oklch(0.48_0.14_245)] transition-colors text-sm"
                         >
                           {item.value}
                         </a>
@@ -117,7 +117,7 @@ export default function Contact() {
               </div>
 
               {/* Quick CTA */}
-              <div className="mt-10 bg-[oklch(0.32_0.09_140)] rounded-lg p-6 text-white">
+              <div className="mt-10 bg-[oklch(0.48_0.14_245)] rounded-lg p-6 text-white">
                 <h3 className="font-black mb-2" style={{ fontFamily: "'Merriweather', serif" }}>
                   Need a Fast Appraisal?
                 </h3>
@@ -132,13 +132,13 @@ export default function Contact() {
 
               {/* Service areas quick list */}
               <div className="mt-6 bg-[oklch(0.96_0.008_90)] rounded-lg p-5">
-                <div className="text-xs font-bold uppercase tracking-widest text-[oklch(0.32_0.09_140)] mb-3" style={{ fontFamily: "'Lato', sans-serif" }}>
+                <div className="text-xs font-bold uppercase tracking-widest text-[oklch(0.48_0.14_245)] mb-3" style={{ fontFamily: "'Lato', sans-serif" }}>
                   We Serve
                 </div>
                 <div className="grid grid-cols-2 gap-1.5">
                   {["Kalamazoo", "Grand Rapids", "Battle Creek", "South Haven", "Portage", "Holland", "St. Joseph", "Allegan"].map((city) => (
                     <div key={city} className="flex items-center gap-1.5 text-xs text-[oklch(0.35_0.005_260)]">
-                      <MapPin size={10} className="text-[oklch(0.32_0.09_140)]" />
+                      <MapPin size={10} className="text-[oklch(0.48_0.14_245)]" />
                       {city}, MI
                     </div>
                   ))}
@@ -153,8 +153,8 @@ export default function Contact() {
               </h2>
 
               {submitted ? (
-                <div className="bg-[oklch(0.32_0.09_140/0.06)] border border-[oklch(0.32_0.09_140/0.3)] rounded-lg p-10 text-center">
-                  <CheckCircle2 size={48} className="text-[oklch(0.32_0.09_140)] mx-auto mb-4" />
+                <div className="bg-[oklch(0.48_0.14_245/0.06)] border border-[oklch(0.48_0.14_245/0.3)] rounded-lg p-10 text-center">
+                  <CheckCircle2 size={48} className="text-[oklch(0.48_0.14_245)] mx-auto mb-4" />
                   <h3 className="text-xl font-black text-[oklch(0.22_0.005_260)] mb-2" style={{ fontFamily: "'Merriweather', serif" }}>
                     Message Received!
                   </h3>

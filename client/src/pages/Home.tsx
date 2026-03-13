@@ -108,7 +108,7 @@ export default function Home() {
 
         <div className="container relative z-10 py-24">
           <div className="max-w-2xl">
-            <div className="section-label text-[oklch(0.72_0.12_85)] mb-4 animate-fade-in-up">
+            <div className="section-label text-[oklch(0.72_0.12_245)] mb-4 animate-fade-in-up">
               Southwest Michigan's Trusted Appraisers
             </div>
             <h1
@@ -116,7 +116,7 @@ export default function Home() {
               style={{ fontFamily: "'Merriweather', serif" }}
             >
               Certified Real Estate Appraisals in{" "}
-              <span className="text-[oklch(0.72_0.12_85)]">Southwest Michigan</span>
+              <span className="text-[oklch(0.72_0.12_245)]">Southwest Michigan</span>
             </h1>
             <p className="text-lg text-[oklch(0.88_0.005_260)] mb-8 leading-relaxed animate-fade-in-up delay-200">
               Lake Shore Real Estate Appraisals provides accurate, impartial property valuations
@@ -138,7 +138,7 @@ export default function Home() {
             <div className="flex flex-wrap gap-5 mt-10 animate-fade-in-up delay-400">
               {["Licensed & Certified", "20+ Years Experience", "Fast Turnaround", "Court-Admissible Reports"].map((badge) => (
                 <div key={badge} className="flex items-center gap-2 text-sm text-white">
-                  <CheckCircle2 size={15} className="text-[oklch(0.72_0.12_85)]" />
+                  <CheckCircle2 size={15} className="text-[oklch(0.72_0.12_245)]" />
                   {badge}
                 </div>
               ))}
@@ -148,13 +148,13 @@ export default function Home() {
       </section>
 
       {/* ===== STATS BAR ===== */}
-      <section className="bg-[oklch(0.32_0.09_140)] py-8" aria-label="Statistics">
+      <section className="bg-[oklch(0.48_0.14_245)] py-8" aria-label="Statistics">
         <div className="container">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {stats.map((stat) => (
               <div key={stat.label} className="text-center">
                 <div
-                  className="text-3xl md:text-4xl font-black text-[oklch(0.72_0.12_85)] mb-1"
+                  className="text-3xl md:text-4xl font-black text-[oklch(0.72_0.12_245)] mb-1"
                   style={{ fontFamily: "'Merriweather', serif" }}
                 >
                   {stat.number}
@@ -269,7 +269,7 @@ export default function Home() {
               <div className="section-label mb-2">01 — What We Do</div>
               <h2 className="text-3xl md:text-4xl font-black text-[oklch(0.22_0.005_260)]" style={{ fontFamily: "'Merriweather', serif" }}>
                 Comprehensive Appraisal Services<br />
-                <span className="text-[oklch(0.32_0.09_140)]">Across Southwest Michigan</span>
+                <span className="text-[oklch(0.48_0.14_245)]">Across Southwest Michigan</span>
               </h2>
             </div>
             <Link href="/services" className="btn-primary whitespace-nowrap">
@@ -283,16 +283,16 @@ export default function Home() {
               <Link
                 key={service.title}
                 href={service.href}
-                className="group bg-white border border-border rounded-lg p-6 hover:border-[oklch(0.32_0.09_140)] hover:shadow-lg transition-all duration-200"
+                className="group bg-white border border-border rounded-lg p-6 hover:border-[oklch(0.48_0.14_245)] hover:shadow-lg transition-all duration-200"
               >
-                <div className="w-10 h-10 rounded-md bg-[oklch(0.32_0.09_140/0.08)] flex items-center justify-center mb-4 group-hover:bg-[oklch(0.32_0.09_140)] transition-colors">
-                  <service.icon size={20} className="text-[oklch(0.32_0.09_140)] group-hover:text-white transition-colors" />
+                <div className="w-10 h-10 rounded-md bg-[oklch(0.48_0.14_245/0.08)] flex items-center justify-center mb-4 group-hover:bg-[oklch(0.48_0.14_245)] transition-colors">
+                  <service.icon size={20} className="text-[oklch(0.48_0.14_245)] group-hover:text-white transition-colors" />
                 </div>
-                <h3 className="text-base font-bold text-[oklch(0.22_0.005_260)] mb-2 group-hover:text-[oklch(0.32_0.09_140)] transition-colors" style={{ fontFamily: "'Merriweather', serif" }}>
+                <h3 className="text-base font-bold text-[oklch(0.22_0.005_260)] mb-2 group-hover:text-[oklch(0.48_0.14_245)] transition-colors" style={{ fontFamily: "'Merriweather', serif" }}>
                   {service.title}
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{service.desc}</p>
-                <div className="mt-4 flex items-center gap-1 text-xs font-bold uppercase tracking-wide text-[oklch(0.32_0.09_140)] opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="mt-4 flex items-center gap-1 text-xs font-bold uppercase tracking-wide text-[oklch(0.48_0.14_245)] opacity-0 group-hover:opacity-100 transition-opacity">
                   Learn More <ChevronRight size={13} />
                 </div>
               </Link>
@@ -306,7 +306,7 @@ export default function Home() {
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <div className="section-label text-[oklch(0.72_0.12_85)] mb-3">02 — Why Choose Us</div>
+              <div className="section-label text-[oklch(0.72_0.12_245)] mb-3">02 — Why Choose Us</div>
               <h2 className="text-3xl md:text-4xl font-black text-white mb-6" style={{ fontFamily: "'Merriweather', serif" }}>
                 Southwest Michigan's Most Trusted Real Estate Appraisers
               </h2>
@@ -323,7 +323,7 @@ export default function Home() {
                   { title: "Local Market Expertise", desc: "Deep knowledge of Kalamazoo County, Calhoun County, Van Buren County, and Allegan County real estate markets." },
                   { title: "Fast 48-Hour Turnaround", desc: "Rush appraisals available for time-sensitive transactions, refinances, and legal proceedings." },
                 ].map((item) => (
-                  <div key={item.title} className="left-border-accent border-[oklch(0.72_0.12_85)]">
+                  <div key={item.title} className="left-border-accent border-[oklch(0.72_0.12_245)]">
                     <div className="font-bold text-white text-sm mb-1" style={{ fontFamily: "'Lato', sans-serif" }}>{item.title}</div>
                     <div className="text-sm text-[oklch(0.75_0.005_260)]">{item.desc}</div>
                   </div>
@@ -342,7 +342,7 @@ export default function Home() {
                 style={{ maxHeight: "520px" }}
                 loading="lazy"
               />
-              <div className="absolute -bottom-6 -left-6 bg-[oklch(0.72_0.12_85)] text-[oklch(0.22_0.005_260)] p-5 rounded-lg shadow-xl">
+              <div className="absolute -bottom-6 -left-6 bg-[oklch(0.72_0.12_245)] text-[oklch(0.22_0.005_260)] p-5 rounded-lg shadow-xl">
                 <div className="text-3xl font-black" style={{ fontFamily: "'Merriweather', serif" }}>20+</div>
                 <div className="text-xs font-bold uppercase tracking-widest" style={{ fontFamily: "'Lato', sans-serif" }}>Years Serving<br />SW Michigan</div>
               </div>
@@ -377,7 +377,7 @@ export default function Home() {
               <div className="grid grid-cols-2 gap-2 mb-8">
                 {serviceAreas.map((area) => (
                   <div key={area} className="flex items-center gap-2 text-sm text-[oklch(0.35_0.005_260)]">
-                    <MapPin size={13} className="text-[oklch(0.32_0.09_140)] flex-shrink-0" />
+                    <MapPin size={13} className="text-[oklch(0.48_0.14_245)] flex-shrink-0" />
                     {area}, MI
                   </div>
                 ))}
@@ -405,12 +405,12 @@ export default function Home() {
               <div key={t.name} className="bg-white rounded-lg p-7 shadow-sm border border-border hover:shadow-md transition-shadow">
                 <div className="flex gap-1 mb-4">
                   {Array.from({ length: t.stars }).map((_, i) => (
-                    <Star key={i} size={15} className="fill-[oklch(0.72_0.12_85)] text-[oklch(0.72_0.12_85)]" />
+                    <Star key={i} size={15} className="fill-[oklch(0.72_0.12_245)] text-[oklch(0.72_0.12_245)]" />
                   ))}
                 </div>
                 <p className="text-sm text-[oklch(0.35_0.005_260)] leading-relaxed mb-5 italic">"{t.text}"</p>
                 <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full bg-[oklch(0.32_0.09_140)] flex items-center justify-center text-white text-sm font-bold">
+                  <div className="w-9 h-9 rounded-full bg-[oklch(0.48_0.14_245)] flex items-center justify-center text-white text-sm font-bold">
                     {t.name[0]}
                   </div>
                   <div>
@@ -430,10 +430,10 @@ export default function Home() {
       <section
         className="relative py-20 overflow-hidden"
         aria-label="Call to action"
-        style={{ background: "oklch(0.32 0.09 140)" }}
+        style={{ background: "oklch(0.48 0.14 245)" }}
       >
         <div className="container relative z-10 text-center">
-          <div className="section-label text-[oklch(0.72_0.12_85)] mb-3">Ready to Get Started?</div>
+          <div className="section-label text-[oklch(0.72_0.12_245)] mb-3">Ready to Get Started?</div>
           <h2 className="text-3xl md:text-4xl font-black text-white mb-4" style={{ fontFamily: "'Merriweather', serif" }}>
             Order Your Appraisal Today
           </h2>
