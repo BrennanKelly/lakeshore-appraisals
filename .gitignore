@@ -3,9 +3,19 @@
 .pnpm-store/
 
 # Build outputs
-dist/
 build/
 *.dist
+# Ignore root dist (server build) but allow client/dist (static deploy)
+/dist/
+!client/dist/
+
+# Allow root-level built files committed by CI
+!index.html
+!assets/
+!favicon.svg
+!robots.txt
+!logo-lighthouse.svg
+!.htaccess
 
 # Environment variables
 .env
@@ -107,3 +117,7 @@ temp/
 
 # Webdev artifacts (checkpoint zips, migrations, etc.)
 .webdev/
+
+# Manus dev artifacts in build output
+client/dist/__manus__/
+client/dist/.gitkeep
