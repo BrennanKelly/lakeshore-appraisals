@@ -9,6 +9,14 @@ build/
 /dist/
 !client/dist/
 
+# Allow root-level built files committed by CI
+!index.html
+!assets/
+!favicon.svg
+!robots.txt
+!logo-lighthouse.svg
+!.htaccess
+
 # Environment variables
 .env
 .env.local

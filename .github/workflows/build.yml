@@ -1,4 +1,4 @@
-name: Build and Commit Static Files
+name: Build static site
 
 on:
   push:
@@ -18,31 +18,39 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Install Node.js
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
       - name: Install pnpm
-        uses: pnpm/action-setup@v4
+        run: npm install -g pnpm
 
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build frontend
+      - name: Build project
         run: pnpm build
 
-      - name: Remove dev artifacts from build
-        run: rm -rf client/dist/__manus__ client/dist/.gitkeep
-
-      - name: Commit and push built files
+      - name: Clean previous root build files
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add client/dist/ -f
-          if git diff --staged --quiet; then
-            echo "No changes to commit — build output unchanged"
-          else
-            git commit -m "chore: update built static files [skip ci]"
+          rm -rf assets
+          rm -f index.html favicon.svg robots.txt logo-lighthouse.svg
+
+      - name: Copy built files to root
+        run: |
+          cp -r client/dist/* .
+
+      - name: Remove Manus artifacts
+        run: |
+          rm -rf __manus__ .gitkeep || true
+
+      - name: Commit built files
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
+          git add index.html assets favicon.svg robots.txt logo-lighthouse.svg || true
+          if ! git diff --staged --quiet; then
+            git commit -m "Deploy built site [skip ci]"
             git push
           fi
