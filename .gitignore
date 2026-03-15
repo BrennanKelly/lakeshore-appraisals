@@ -117,3 +117,7 @@ temp/
 
 # Webdev artifacts (checkpoint zips, migrations, etc.)
 .webdev/
+
+# Manus dev artifacts in build output
+client/dist/__manus__/
+client/dist/.gitkeep
