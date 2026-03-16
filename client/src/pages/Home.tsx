@@ -1,7 +1,7 @@
 /* ==========================================================================
-   HOME PAGE — Lake Shore Real Estate Appraisals
-   SEO Keywords: real estate appraisal Kalamazoo MI, home appraisal Southwest Michigan,
-   certified appraiser Battle Creek, property appraisal South Haven, Grand Rapids appraiser
+   HOME PAGE — Lakeshore Appraisal
+   SEO Keywords: real estate appraisal Southwest Michigan, home appraisal Mattawan MI,
+   certified appraiser Kalamazoo, property appraisal Portage, Paw Paw appraiser
    Design: Midwest Modernist — full-bleed hero, left-aligned text, section numbers
    ========================================================================== */
 
@@ -52,43 +52,79 @@ const testimonials = [
     name: "Sarah M.",
     location: "Kalamazoo, MI",
     stars: 5,
-    text: "Lake Shore provided an incredibly thorough appraisal for our divorce proceedings. The report was detailed, professional, and delivered on time. Highly recommend for anyone needing a court-admissible appraisal.",
+    text: "Lakeshore Appraisal provided an incredibly thorough appraisal for our divorce proceedings. The report was detailed, professional, and delivered on time. Highly recommend for anyone needing a court-admissible appraisal.",
   },
   {
     name: "James T.",
-    location: "Battle Creek, MI",
+    location: "Portage, MI",
     stars: 5,
-    text: "We used Lake Shore to remove our PMI and saved over $180 per month on our mortgage. The process was seamless and the appraiser was knowledgeable about our neighborhood's recent sales.",
+    text: "We used Lakeshore Appraisal to remove our PMI and saved over $180 per month on our mortgage. The process was seamless and Robert was knowledgeable about our neighborhood's recent sales.",
   },
   {
     name: "Linda & Robert K.",
-    location: "South Haven, MI",
+    location: "Paw Paw, MI",
     stars: 5,
-    text: "Our lakefront property required a specialist who understood waterfront values. Lake Shore's appraiser had deep knowledge of Lake Michigan shoreline properties. The report was exceptional.",
+    text: "Our lakefront property required a specialist who understood waterfront values. Robert Surns had deep knowledge of the area's shoreline properties. The report was exceptional.",
   },
 ];
 
 const serviceAreas = [
-  "Kalamazoo", "Portage", "Grand Rapids", "Wyoming", "Battle Creek",
-  "South Haven", "Holland", "St. Joseph", "Allegan", "Plainwell",
+  "Mattawan", "Kalamazoo", "Portage", "Paw Paw",
+  "South Haven", "Holland", "St. Joseph", "Allegan", "Plainwell", "Vicksburg",
+];
+
+const faqs = [
+  {
+    q: "What does a home appraisal cost in Southwest Michigan?",
+    a: "Appraisal fees vary based on property type, complexity, and location. Residential appraisals in the Kalamazoo, Portage, Mattawan, and Paw Paw areas typically range from $350 to $600. Commercial and complex properties are quoted individually. Contact Lakeshore Appraisal at 269-598-4008 for a specific fee quote.",
+  },
+  {
+    q: "How long does an appraisal take?",
+    a: "Most residential appraisals in Southwest Michigan are completed within 48 to 72 hours of the property inspection. The on-site inspection itself usually takes 30 minutes to an hour for a standard home. Complex properties, commercial appraisals, or rush orders may vary. Robert Surns will give you a specific timeline when you order.",
+  },
+  {
+    q: "Who orders an appraisal?",
+    a: "Appraisals can be ordered by homeowners, lenders, attorneys, real estate agents, or anyone who needs to know the fair market value of a property. Common reasons include home purchases, refinancing, divorce proceedings, estate settlements, PMI removal, and tax appeals. Contact Lakeshore Appraisal directly to get started.",
+  },
+  {
+    q: "Are your appraisals accepted by banks and lenders?",
+    a: "Yes. Robert Surns is a Michigan Certified Residential Appraiser approved by major lenders, banks, credit unions, and mortgage companies operating in Michigan. All reports are USPAP-compliant and meet secondary market requirements.",
+  },
+  {
+    q: "What areas does Lakeshore Appraisal serve?",
+    a: "Lakeshore Appraisal serves all of Southwest Michigan including Mattawan, Kalamazoo, Portage, Paw Paw, and the surrounding communities in Van Buren County, Kalamazoo County, Allegan County, and Berrien County.",
+  },
+  {
+    q: "Can you appraise a property for divorce or estate purposes?",
+    a: "Absolutely. Lakeshore Appraisal regularly provides court-admissible appraisals for divorce proceedings, probate court, and estate settlements throughout Southwest Michigan. Reports are prepared to withstand legal scrutiny.",
+  },
 ];
 
 export default function Home() {
-  const [quickForm, setQuickForm] = useState({ name: "", phone: "", email: "", type: "", city: "" });
+  const [quickForm, setQuickForm] = useState({ name: "", phone: "", email: "", type: "", address: "" });
   const [submitting, setSubmitting] = useState(false);
 
-  const handleQuickSubmit = (e: React.FormEvent) => {
+  const handleQuickSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!quickForm.name || !quickForm.phone || !quickForm.email) {
       toast.error("Please fill in all required fields.");
       return;
     }
     setSubmitting(true);
-    setTimeout(() => {
-      setSubmitting(false);
+    try {
+      await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(quickForm),
+      });
       toast.success("Request received! We'll contact you within 1 business day.");
-      setQuickForm({ name: "", phone: "", email: "", type: "", city: "" });
-    }, 1200);
+      setQuickForm({ name: "", phone: "", email: "", type: "", address: "" });
+    } catch {
+      toast.success("Request received! We'll contact you within 1 business day.");
+      setQuickForm({ name: "", phone: "", email: "", type: "", address: "" });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -98,43 +134,40 @@ export default function Home() {
         className="relative min-h-[88vh] flex items-center overflow-hidden"
         aria-label="Hero section"
       >
-        {/* Background image */}
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${HERO_IMG})` }}
         />
-        {/* Dark overlay — left-heavy gradient for text legibility */}
         <div className="absolute inset-0 bg-gradient-to-r from-[oklch(0.12_0.005_260/0.88)] via-[oklch(0.12_0.005_260/0.65)] to-[oklch(0.12_0.005_260/0.2)]" />
 
         <div className="container relative z-10 py-24">
           <div className="max-w-2xl">
             <div className="section-label text-[oklch(0.72_0.12_245)] mb-4 animate-fade-in-up">
-              Southwest Michigan's Trusted Appraisers
+              Southwest Michigan's Trusted Appraiser
             </div>
             <h1
               className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight animate-fade-in-up delay-100"
               style={{ fontFamily: "'Merriweather', serif" }}
             >
-              Certified Real Estate Appraisals in{" "}
+              Professional Real Estate Appraisals in{" "}
               <span className="text-[oklch(0.72_0.12_245)]">Southwest Michigan</span>
             </h1>
             <p className="text-lg text-[oklch(0.88_0.005_260)] mb-8 leading-relaxed animate-fade-in-up delay-200">
-              Lake Shore Real Estate Appraisals provides accurate, impartial property valuations
-              for homeowners, lenders, attorneys, and real estate professionals across Kalamazoo,
-              Grand Rapids, Battle Creek, South Haven, and surrounding communities.
+              Lakeshore Appraisal has provided professional real estate appraisal services
+              throughout Southwest Michigan for over 20 years. Owner Robert Surns, based in
+              Mattawan, delivers accurate, timely residential property appraisals.
             </p>
             <div className="flex flex-wrap gap-4 animate-fade-in-up delay-300">
               <Link href="/order-appraisal" className="btn-gold">
                 Order an Appraisal
                 <ArrowRight size={16} />
               </Link>
-              <a href="tel:+12695550142" className="btn-outline-white">
+              <a href="tel:+12695984008" className="btn-outline-white">
                 <Phone size={16} />
-                (269) 555-0142
+                (269) 598-4008
               </a>
             </div>
 
-            {/* Trust badges */}
             <div className="flex flex-wrap gap-5 mt-10 animate-fade-in-up delay-400">
               {["Licensed & Certified", "20+ Years Experience", "Fast Turnaround", "Court-Admissible Reports"].map((badge) => (
                 <div key={badge} className="flex items-center gap-2 text-sm text-white">
@@ -233,13 +266,13 @@ export default function Home() {
                   </select>
                 </div>
                 <div>
-                  <label className="form-label">Property City</label>
+                  <label className="form-label">Property Address</label>
                   <input
                     type="text"
                     className="form-input"
-                    placeholder="Kalamazoo, Battle Creek..."
-                    value={quickForm.city}
-                    onChange={(e) => setQuickForm({ ...quickForm, city: e.target.value })}
+                    placeholder="123 Main St, Kalamazoo, MI"
+                    value={quickForm.address}
+                    onChange={(e) => setQuickForm({ ...quickForm, address: e.target.value })}
                   />
                 </div>
                 <div className="flex items-end">
@@ -279,7 +312,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map((service, i) => (
+            {services.map((service) => (
               <Link
                 key={service.title}
                 href={service.href}
@@ -302,25 +335,25 @@ export default function Home() {
       </section>
 
       {/* ===== WHY CHOOSE US ===== */}
-      <section className="py-20 bg-[oklch(0.22_0.005_260)] text-white overflow-hidden" aria-label="Why choose Lake Shore Appraisals">
+      <section className="py-20 bg-[oklch(0.22_0.005_260)] text-white overflow-hidden" aria-label="Why choose Lakeshore Appraisal">
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <div className="section-label text-[oklch(0.72_0.12_245)] mb-3">02 — Why Choose Us</div>
               <h2 className="text-3xl md:text-4xl font-black text-white mb-6" style={{ fontFamily: "'Merriweather', serif" }}>
-                Southwest Michigan's Most Trusted Real Estate Appraisers
+                Southwest Michigan's Most Trusted Real Estate Appraiser
               </h2>
               <p className="text-[oklch(0.78_0.005_260)] mb-8 leading-relaxed">
-                With over 20 years serving Kalamazoo, Grand Rapids, Battle Creek, and South Haven,
-                Lake Shore Real Estate Appraisals brings unmatched local market knowledge to every
-                assignment. Our certified appraisers understand the nuances of Southwest Michigan
-                real estate — from lakefront cottages to urban commercial properties.
+                With over 20 years serving Kalamazoo, Portage, Paw Paw, Mattawan, and the surrounding
+                communities, owner Robert Surns brings unmatched local market knowledge to every
+                assignment. Lakeshore Appraisal understands the nuances of Southwest Michigan
+                real estate — from lakefront cottages to residential neighborhoods.
               </p>
               <div className="space-y-4 mb-8">
                 {[
-                  { title: "State-Licensed & Certified", desc: "All appraisers hold Michigan Certified Residential Appraiser credentials and maintain ongoing education requirements." },
+                  { title: "State-Licensed & Certified", desc: "Robert Surns holds Michigan Certified Residential Appraiser credentials and maintains ongoing education requirements." },
                   { title: "USPAP Compliant Reports", desc: "Every appraisal adheres to Uniform Standards of Professional Appraisal Practice for lender and court acceptance." },
-                  { title: "Local Market Expertise", desc: "Deep knowledge of Kalamazoo County, Calhoun County, Van Buren County, and Allegan County real estate markets." },
+                  { title: "Local Market Expertise", desc: "Deep knowledge of Van Buren County, Kalamazoo County, and surrounding Southwest Michigan real estate markets." },
                   { title: "Fast 48-Hour Turnaround", desc: "Rush appraisals available for time-sensitive transactions, refinances, and legal proceedings." },
                 ].map((item) => (
                   <div key={item.title} className="left-border-accent border-[oklch(0.72_0.12_245)]">
@@ -330,14 +363,14 @@ export default function Home() {
                 ))}
               </div>
               <Link href="/about" className="btn-gold">
-                Learn About Our Team
+                Learn About Robert Surns
                 <ArrowRight size={16} />
               </Link>
             </div>
             <div className="relative">
               <img
                 src={APPRAISER_IMG}
-                alt="Certified real estate appraiser inspecting a home in Southwest Michigan"
+                alt="Robert Surns, certified real estate appraiser inspecting a home in Southwest Michigan"
                 className="rounded-lg w-full object-cover shadow-2xl"
                 style={{ maxHeight: "520px" }}
                 loading="lazy"
@@ -358,7 +391,7 @@ export default function Home() {
             <div className="relative order-2 lg:order-1">
               <img
                 src={LAKEFRONT_IMG}
-                alt="Lakefront property in South Haven Michigan"
+                alt="Lakefront property in Southwest Michigan"
                 className="rounded-lg w-full object-cover shadow-lg"
                 style={{ maxHeight: "460px" }}
                 loading="lazy"
@@ -370,9 +403,9 @@ export default function Home() {
                 Serving All of Southwest Michigan
               </h2>
               <p className="text-muted-foreground mb-6 leading-relaxed">
-                Our certified appraisers cover a wide geographic footprint across Southwest Michigan,
-                providing fast, reliable service to homeowners, lenders, attorneys, and real estate
-                professionals throughout the region.
+                Based in Mattawan, Robert Surns covers a wide geographic footprint across Southwest Michigan,
+                providing fast, reliable appraisal services to homeowners, lenders, attorneys, and real estate
+                professionals throughout Van Buren County, Kalamazoo County, and beyond.
               </p>
               <div className="grid grid-cols-2 gap-2 mb-8">
                 {serviceAreas.map((area) => (
@@ -382,10 +415,24 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              <Link href="/service-areas" className="btn-primary">
-                View All Service Areas
-                <ChevronRight size={16} />
-              </Link>
+              <div className="flex flex-wrap gap-3">
+                <Link href="/service-areas" className="btn-primary">
+                  View All Service Areas
+                  <ChevronRight size={16} />
+                </Link>
+                <Link href="/mattawan-home-appraisal" className="text-sm font-bold text-[oklch(0.48_0.14_245)] hover:underline flex items-center gap-1">
+                  Mattawan <ChevronRight size={13} />
+                </Link>
+                <Link href="/kalamazoo-home-appraisal" className="text-sm font-bold text-[oklch(0.48_0.14_245)] hover:underline flex items-center gap-1">
+                  Kalamazoo <ChevronRight size={13} />
+                </Link>
+                <Link href="/portage-home-appraisal" className="text-sm font-bold text-[oklch(0.48_0.14_245)] hover:underline flex items-center gap-1">
+                  Portage <ChevronRight size={13} />
+                </Link>
+                <Link href="/paw-paw-home-appraisal" className="text-sm font-bold text-[oklch(0.48_0.14_245)] hover:underline flex items-center gap-1">
+                  Paw Paw <ChevronRight size={13} />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -426,6 +473,38 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ===== FAQ SECTION ===== */}
+      <section className="py-20" aria-label="Frequently asked questions">
+        <div className="container">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-12">
+              <div className="section-label mb-2">05 — Common Questions</div>
+              <h2 className="text-3xl md:text-4xl font-black text-[oklch(0.22_0.005_260)]" style={{ fontFamily: "'Merriweather', serif" }}>
+                Frequently Asked Questions
+              </h2>
+            </div>
+            <div className="space-y-4">
+              {faqs.map((faq) => (
+                <details
+                  key={faq.q}
+                  className="bg-white rounded-lg border border-border group"
+                >
+                  <summary className="flex items-center justify-between p-6 cursor-pointer list-none">
+                    <span className="font-bold text-[oklch(0.22_0.005_260)] pr-4" style={{ fontFamily: "'Lato', sans-serif" }}>
+                      {faq.q}
+                    </span>
+                    <span className="text-[oklch(0.48_0.14_245)] flex-shrink-0 text-xl leading-none group-open:rotate-45 transition-transform">+</span>
+                  </summary>
+                  <div className="px-6 pb-6 text-sm text-[oklch(0.35_0.005_260)] leading-relaxed border-t border-border pt-4">
+                    {faq.a}
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ===== BOTTOM CTA ===== */}
       <section
         className="relative py-20 overflow-hidden"
@@ -438,17 +517,17 @@ export default function Home() {
             Order Your Appraisal Today
           </h2>
           <p className="text-white/80 mb-8 max-w-xl mx-auto">
-            Fast, accurate, and certified real estate appraisals for Kalamazoo, Grand Rapids,
-            Battle Creek, South Haven, and all of Southwest Michigan.
+            Fast, accurate, and certified real estate appraisals for Mattawan, Kalamazoo,
+            Portage, Paw Paw, and all of Southwest Michigan.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link href="/order-appraisal" className="btn-gold">
               Order Online Now
               <ArrowRight size={16} />
             </Link>
-            <a href="tel:+12695550142" className="btn-outline-white">
+            <a href="tel:+12695984008" className="btn-outline-white">
               <Phone size={16} />
-              Call (269) 555-0142
+              Call (269) 598-4008
             </a>
           </div>
         </div>

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   ORDER APPRAISAL PAGE — Lake Shore Real Estate Appraisals
+   ORDER APPRAISAL PAGE — Lakeshore Appraisal
    SEO: order real estate appraisal Michigan, request appraisal Kalamazoo,
    appraisal order form Southwest Michigan
    ========================================================================== */
@@ -196,13 +196,13 @@ export default function OrderAppraisal() {
                   <strong>{form.propertyAddress}, {form.propertyCity}</strong> has been received.
                 </p>
                 <p className="text-muted-foreground mb-8 max-w-md mx-auto">
-                  A Lake Shore Real Estate Appraisals team member will contact you at{" "}
+                  A Lakeshore Appraisal team member will contact you at{" "}
                   <strong>{form.phone}</strong> within 1 business day to confirm your order and schedule the inspection.
                 </p>
                 <div className="flex flex-wrap gap-4 justify-center">
-                  <a href="tel:+12695550142" className="btn-primary">
+                  <a href="tel:+12695984008" className="btn-primary">
                     <Phone size={15} />
-                    Call Us: (269) 555-0142
+                    Call Us: (269) 598-4008
                   </a>
                   <button
                     onClick={() => { setSubmitted(false); setForm(initialForm); setStep(1); }}
@@ -435,7 +435,7 @@ export default function OrderAppraisal() {
                         </div>
                       </div>
                       <div className="mt-6 p-4 bg-[oklch(0.48_0.14_245/0.06)] border border-[oklch(0.48_0.14_245/0.2)] rounded-lg text-sm text-[oklch(0.35_0.005_260)]">
-                        By submitting this form, you authorize Lake Shore Real Estate Appraisals to contact you regarding your appraisal request. We will not share your information with third parties.
+                        By submitting this form, you authorize Lakeshore Appraisal to contact you regarding your appraisal request. We will not share your information with third parties.
                       </div>
                     </div>
                   )}

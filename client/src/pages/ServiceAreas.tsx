@@ -1,5 +1,5 @@
 /* ==========================================================================
-   SERVICE AREAS PAGE — Lake Shore Real Estate Appraisals
+   SERVICE AREAS PAGE — Lakeshore Appraisal
    SEO: real estate appraiser Kalamazoo MI, home appraisal Grand Rapids, 
    property appraisal Battle Creek, appraisal South Haven Michigan
    ========================================================================== */
@@ -30,7 +30,7 @@ const primaryAreas = [
     county: "Kent County",
     slug: "grand-rapids",
     headline: "Real Estate Appraisals in Grand Rapids, Michigan",
-    desc: `Grand Rapids is Michigan's second-largest city and a thriving real estate market. Lake Shore Real Estate Appraisals serves homeowners, lenders, and attorneys throughout the Grand Rapids metro area including Wyoming, Kentwood, Walker, Grandville, and East Grand Rapids. Our appraisers understand the premium placed on Grand Rapids' revitalized urban neighborhoods, the Heritage Hill historic district, and the suburban communities along the M-6 corridor.`,
+    desc: `Grand Rapids is Michigan's second-largest city and a thriving real estate market. Lakeshore Appraisal serves homeowners, lenders, and attorneys throughout the Grand Rapids metro area including Wyoming, Kentwood, Walker, Grandville, and East Grand Rapids. Our appraisers understand the premium placed on Grand Rapids' revitalized urban neighborhoods, the Heritage Hill historic district, and the suburban communities along the M-6 corridor.`,
     services: ["Residential Appraisals", "Commercial Appraisals", "Pre-Listing Appraisals", "Divorce Appraisals", "Estate Appraisals", "Investment Property"],
     neighborhoods: ["Wyoming", "Kentwood", "Walker", "Grandville", "East Grand Rapids", "Forest Hills", "Caledonia"],
     population: "198,000+",
@@ -54,7 +54,7 @@ const primaryAreas = [
     county: "Van Buren County",
     slug: "south-haven",
     headline: "Real Estate Appraisals in South Haven, Michigan",
-    desc: `South Haven and the Lake Michigan shoreline represent some of Southwest Michigan's most unique and valuable real estate. Lake Shore Real Estate Appraisals specializes in lakefront and waterfront property appraisals throughout Van Buren County — including South Haven, Bangor, Lawton, and Paw Paw. Our appraisers understand the premium factors that drive waterfront values: linear feet of frontage, water quality, dock rights, seasonal access, and proximity to South Haven's vibrant downtown and marina district.`,
+    desc: `South Haven and the Lake Michigan shoreline represent some of Southwest Michigan's most unique and valuable real estate. Lakeshore Appraisal specializes in lakefront and waterfront property appraisals throughout Van Buren County — including South Haven, Bangor, Lawton, and Paw Paw. Our appraisers understand the premium factors that drive waterfront values: linear feet of frontage, water quality, dock rights, seasonal access, and proximity to South Haven's vibrant downtown and marina district.`,
     services: ["Lakefront Property Appraisals", "Residential Appraisals", "Vacation Rental Appraisals", "Estate Appraisals", "Pre-Listing Appraisals", "Divorce Appraisals"],
     neighborhoods: ["Bangor", "Lawton", "Paw Paw", "Hartford", "Covert Township", "Geneva Township", "Columbia Township"],
     population: "4,500+",
@@ -89,7 +89,7 @@ export default function ServiceAreas() {
             <span className="text-[oklch(0.72_0.12_245)]">Southwest Michigan</span>
           </h1>
           <p className="text-[oklch(0.78_0.005_260)] max-w-2xl leading-relaxed">
-            Lake Shore Real Estate Appraisals serves homeowners, lenders, attorneys, and real estate
+            Lakeshore Appraisal serves homeowners, lenders, attorneys, and real estate
             professionals throughout Southwest Michigan. Our certified appraisers cover Kalamazoo,
             Grand Rapids, Battle Creek, South Haven, and dozens of surrounding communities.
           </p>
@@ -207,7 +207,7 @@ export default function ServiceAreas() {
             Additional Communities We Serve
           </h2>
           <p className="text-muted-foreground mb-10 max-w-2xl">
-            In addition to our primary markets, Lake Shore Real Estate Appraisals serves dozens of
+            In addition to our primary markets, Lakeshore Appraisal serves dozens of
             communities throughout Southwest Michigan. Don't see your city? Call us — we likely cover your area.
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mb-10">
@@ -230,7 +230,7 @@ export default function ServiceAreas() {
               Contact us to confirm coverage for your specific location.
             </p>
             <div className="flex flex-wrap gap-3">
-              <a href="tel:+12695550142" className="btn-primary text-sm py-2.5 px-5">
+              <a href="tel:+12695984008" className="btn-primary text-sm py-2.5 px-5">
                 <Phone size={14} />
                 Call Us
               </a>

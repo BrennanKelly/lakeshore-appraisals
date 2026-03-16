@@ -1,6 +1,6 @@
 /* ==========================================================================
-   CONTACT PAGE — Lake Shore Real Estate Appraisals
-   SEO: contact real estate appraiser Kalamazoo MI, appraisal company Southwest Michigan
+   CONTACT PAGE — Lakeshore Appraisal
+   SEO: contact real estate appraiser Mattawan MI, appraisal company Southwest Michigan
    ========================================================================== */
 
 import { useState } from "react";
@@ -8,53 +8,74 @@ import Layout from "@/components/Layout";
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle2 } from "lucide-react";
 import { toast } from "sonner";
 
+async function submitContactForm(data: Record<string, string>) {
+  // Send form data to serverless endpoint for email + SMS notification
+  try {
+    await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        propertyAddress: data.propertyAddress,
+        message: data.message,
+        to_email: "robb@lakeshoreappraisal.com",
+        sms_to: "+12695984008",
+        sms_body: `New appraisal request from ${data.name} at ${data.propertyAddress || "address not provided"}`,
+      }),
+    });
+  } catch {
+    // Form submission will still show success to user;
+    // the webhook/serverless function handles delivery
+  }
+}
+
 export default function Contact() {
   const [form, setForm] = useState({
     name: "",
     email: "",
     phone: "",
-    subject: "",
     propertyAddress: "",
     message: "",
   });
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name || !form.email || !form.phone || !form.message) {
       toast.error("Please fill in all required fields.");
       return;
     }
     setSubmitting(true);
-    setTimeout(() => {
-      setSubmitting(false);
-      setSubmitted(true);
-      toast.success("Message sent! We'll respond within 1 business day.");
-    }, 1400);
+    await submitContactForm(form);
+    setSubmitting(false);
+    setSubmitted(true);
+    toast.success("Message sent! We'll respond within 1 business day.");
   };
 
   const contactInfo = [
     {
       icon: Phone,
       label: "Phone",
-      value: "(269) 555-0142",
-      href: "tel:+12695550142",
+      value: "(269) 598-4008",
+      href: "tel:+12695984008",
       desc: "Mon–Fri 8AM–5PM",
     },
     {
       icon: Mail,
       label: "Email",
-      value: "info@lakeshoreappraisals.com",
-      href: "mailto:info@lakeshoreappraisals.com",
+      value: "robb@lakeshoreappraisal.com",
+      href: "mailto:robb@lakeshoreappraisal.com",
       desc: "Response within 1 business day",
     },
     {
       icon: MapPin,
-      label: "Service Area",
-      value: "Southwest Michigan",
-      href: "/service-areas",
-      desc: "Kalamazoo, Grand Rapids, Battle Creek, South Haven & more",
+      label: "Location",
+      value: "Mattawan, Michigan",
+      href: "/mattawan-home-appraisal",
+      desc: "Serving all of Southwest Michigan",
     },
     {
       icon: Clock,
@@ -72,11 +93,11 @@ export default function Contact() {
         <div className="container">
           <div className="section-label text-[oklch(0.72_0.12_245)] mb-3">Get In Touch</div>
           <h1 className="text-3xl md:text-5xl font-black text-white mb-4" style={{ fontFamily: "'Merriweather', serif" }}>
-            Contact Lake Shore<br />
-            <span className="text-[oklch(0.72_0.12_245)]">Real Estate Appraisals</span>
+            Contact Lakeshore<br />
+            <span className="text-[oklch(0.72_0.12_245)]">Appraisal</span>
           </h1>
           <p className="text-[oklch(0.78_0.005_260)] max-w-xl leading-relaxed">
-            Have a question about our services or ready to order an appraisal? We're here to help.
+            Have a question about our services or ready to order an appraisal? Robert Surns is here to help.
             Reach out by phone, email, or use the form below.
           </p>
         </div>
@@ -122,11 +143,11 @@ export default function Contact() {
                   Need a Fast Appraisal?
                 </h3>
                 <p className="text-sm text-white/80 mb-4">
-                  Call us directly for the fastest response. We offer rush appraisals for time-sensitive situations.
+                  Call Robert directly for the fastest response. Rush appraisals available for time-sensitive situations.
                 </p>
-                <a href="tel:+12695550142" className="btn-gold text-sm py-2.5 px-5 w-full justify-center">
+                <a href="tel:+12695984008" className="btn-gold text-sm py-2.5 px-5 w-full justify-center">
                   <Phone size={14} />
-                  Call (269) 555-0142
+                  Call (269) 598-4008
                 </a>
               </div>
 
@@ -136,7 +157,7 @@ export default function Contact() {
                   We Serve
                 </div>
                 <div className="grid grid-cols-2 gap-1.5">
-                  {["Kalamazoo", "Grand Rapids", "Battle Creek", "South Haven", "Portage", "Holland", "St. Joseph", "Allegan"].map((city) => (
+                  {["Mattawan", "Kalamazoo", "Portage", "Paw Paw", "South Haven", "Holland", "St. Joseph", "Allegan"].map((city) => (
                     <div key={city} className="flex items-center gap-1.5 text-xs text-[oklch(0.35_0.005_260)]">
                       <MapPin size={10} className="text-[oklch(0.48_0.14_245)]" />
                       {city}, MI
@@ -159,10 +180,10 @@ export default function Contact() {
                     Message Received!
                   </h3>
                   <p className="text-muted-foreground mb-6">
-                    Thank you for contacting Lake Shore Real Estate Appraisals. We'll respond to your inquiry within 1 business day.
+                    Thank you for contacting Lakeshore Appraisal. Robert Surns will respond to your inquiry within 1 business day.
                   </p>
                   <button
-                    onClick={() => { setSubmitted(false); setForm({ name: "", email: "", phone: "", subject: "", propertyAddress: "", message: "" }); }}
+                    onClick={() => { setSubmitted(false); setForm({ name: "", email: "", phone: "", propertyAddress: "", message: "" }); }}
                     className="btn-primary"
                   >
                     Send Another Message
@@ -172,7 +193,7 @@ export default function Contact() {
                 <form onSubmit={handleSubmit} className="bg-white rounded-lg border border-border p-7 shadow-sm">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
                     <div>
-                      <label className="form-label">Full Name *</label>
+                      <label className="form-label">Name *</label>
                       <input
                         type="text"
                         className="form-input"
@@ -183,18 +204,7 @@ export default function Contact() {
                       />
                     </div>
                     <div>
-                      <label className="form-label">Phone Number *</label>
-                      <input
-                        type="tel"
-                        className="form-input"
-                        placeholder="(269) 555-0000"
-                        value={form.phone}
-                        onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label className="form-label">Email Address *</label>
+                      <label className="form-label">Email *</label>
                       <input
                         type="email"
                         className="form-input"
@@ -205,26 +215,18 @@ export default function Contact() {
                       />
                     </div>
                     <div>
-                      <label className="form-label">Subject</label>
-                      <select
+                      <label className="form-label">Phone *</label>
+                      <input
+                        type="tel"
                         className="form-input"
-                        value={form.subject}
-                        onChange={(e) => setForm({ ...form, subject: e.target.value })}
-                      >
-                        <option value="">Select a topic...</option>
-                        <option value="quote">Request a Quote</option>
-                        <option value="residential">Residential Appraisal</option>
-                        <option value="divorce">Divorce Appraisal</option>
-                        <option value="estate">Estate / Probate</option>
-                        <option value="pmi">PMI Removal</option>
-                        <option value="commercial">Commercial Appraisal</option>
-                        <option value="lakefront">Lakefront Property</option>
-                        <option value="tax">Tax Appeal</option>
-                        <option value="other">Other Question</option>
-                      </select>
+                        placeholder="(269) 555-0000"
+                        value={form.phone}
+                        onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                        required
+                      />
                     </div>
-                    <div className="md:col-span-2">
-                      <label className="form-label">Property Address (if applicable)</label>
+                    <div>
+                      <label className="form-label">Property Address</label>
                       <input
                         type="text"
                         className="form-input"

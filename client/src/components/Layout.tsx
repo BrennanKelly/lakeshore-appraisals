@@ -1,5 +1,5 @@
 /* ==========================================================================
-   LAYOUT COMPONENT — Lake Shore Real Estate Appraisals
+   LAYOUT COMPONENT — Lakeshore Appraisal
    Design: Midwest Modernist — sticky header with persistent phone CTA, full footer
    ========================================================================== */
 
@@ -37,13 +37,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <div className="bg-[oklch(0.22_0.005_260)] text-white text-sm py-2 px-4">
         <div className="container flex items-center justify-between gap-4">
           <div className="flex items-center gap-4 flex-wrap">
-            <a href="tel:+12695550142" className="flex items-center gap-1.5 hover:text-[oklch(0.62_0.14_245)] transition-colors">
+            <a href="tel:+12695984008" className="flex items-center gap-1.5 hover:text-[oklch(0.62_0.14_245)] transition-colors">
               <Phone size={13} />
-              <span className="font-semibold">(269) 555-0142</span>
+              <span className="font-semibold">(269) 598-4008</span>
             </a>
-            <a href="mailto:info@lakeshoreappraisals.com" className="flex items-center gap-1.5 hover:text-[oklch(0.62_0.14_245)] transition-colors hidden sm:flex">
+            <a href="mailto:robb@lakeshoreappraisal.com" className="flex items-center gap-1.5 hover:text-[oklch(0.62_0.14_245)] transition-colors hidden sm:flex">
               <Mail size={13} />
-              <span>info@lakeshoreappraisals.com</span>
+              <span>robb@lakeshoreappraisal.com</span>
             </a>
           </div>
           <div className="flex items-center gap-1.5 text-[oklch(0.62_0.14_245)]">
@@ -65,7 +65,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <Link href="/" className="flex items-center gap-3 group">
             <img
               src="/logo-lighthouse.svg"
-              alt="Lake Shore Appraisals Lighthouse Logo"
+              alt="Lakeshore Appraisal Lighthouse Logo"
               className="w-12 h-12 transition-transform group-hover:scale-105"
             />
             <div className="flex flex-col leading-tight">
@@ -73,13 +73,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 className="text-xl font-black tracking-tight text-[oklch(0.22_0.005_260)] group-hover:text-[oklch(0.48_0.14_245)] transition-colors"
                 style={{ fontFamily: "'Merriweather', serif" }}
               >
-                Lake Shore
+                Lakeshore
               </span>
               <span
                 className="text-xs font-bold uppercase tracking-[0.2em] text-[oklch(0.48_0.14_245)]"
                 style={{ fontFamily: "'Lato', sans-serif" }}
               >
-                Real Estate Appraisals
+                Appraisal
               </span>
             </div>
           </Link>
@@ -156,24 +156,24 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <div className="mb-4 flex items-center gap-3">
                 <img
                   src="/logo-lighthouse.svg"
-                  alt="Lake Shore Appraisals Lighthouse Logo"
+                  alt="Lakeshore Appraisal Lighthouse Logo"
                   className="w-12 h-12"
                 />
                 <div>
                   <div className="text-xl font-black text-white" style={{ fontFamily: "'Merriweather', serif" }}>
-                    Lake Shore
+                    Lakeshore
                   </div>
                   <div className="text-xs font-bold uppercase tracking-[0.2em] text-[oklch(0.62_0.14_245)]" style={{ fontFamily: "'Lato', sans-serif" }}>
-                    Real Estate Appraisals
+                    Appraisal
                   </div>
                 </div>
               </div>
               <p className="text-sm text-[oklch(0.75_0.005_260)] leading-relaxed mb-6">
-                Certified residential and commercial property appraisals serving Southwest Michigan since 2005. Licensed, insured, and locally trusted.
+                Professional residential property appraisals serving Southwest Michigan for over 20 years. Owner Robert Surns, based in Mattawan, Michigan. Licensed, insured, and locally trusted.
               </p>
-              <a href="tel:+12695550142" className="btn-gold text-xs py-2.5 px-5">
+              <a href="tel:+12695984008" className="btn-gold text-xs py-2.5 px-5">
                 <Phone size={14} />
-                (269) 555-0142
+                (269) 598-4008
               </a>
             </div>
 
@@ -210,21 +210,21 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               </h3>
               <ul className="space-y-2.5">
                 {[
-                  "Kalamazoo, MI",
-                  "Grand Rapids, MI",
-                  "Battle Creek, MI",
-                  "South Haven, MI",
-                  "Portage, MI",
-                  "Holland, MI",
-                  "St. Joseph, MI",
-                  "Allegan County, MI",
-                  "Van Buren County, MI",
-                  "Calhoun County, MI",
+                  { label: "Mattawan, MI", href: "/mattawan-home-appraisal" },
+                  { label: "Kalamazoo, MI", href: "/kalamazoo-home-appraisal" },
+                  { label: "Portage, MI", href: "/portage-home-appraisal" },
+                  { label: "Paw Paw, MI", href: "/paw-paw-home-appraisal" },
+                  { label: "South Haven, MI", href: "/service-areas" },
+                  { label: "Holland, MI", href: "/service-areas" },
+                  { label: "St. Joseph, MI", href: "/service-areas" },
+                  { label: "Van Buren County, MI", href: "/service-areas" },
+                  { label: "Kalamazoo County, MI", href: "/service-areas" },
+                  { label: "Allegan County, MI", href: "/service-areas" },
                 ].map((area) => (
-                  <li key={area}>
-                    <Link href="/service-areas" className="text-sm text-[oklch(0.75_0.005_260)] hover:text-white transition-colors flex items-center gap-2">
+                  <li key={area.label}>
+                    <Link href={area.href} className="text-sm text-[oklch(0.75_0.005_260)] hover:text-white transition-colors flex items-center gap-2">
                       <MapPin size={12} className="text-[oklch(0.62_0.14_245)] flex-shrink-0" />
-                      {area}
+                      {area.label}
                     </Link>
                   </li>
                 ))}
@@ -241,8 +241,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   <Phone size={15} className="text-[oklch(0.62_0.14_245)] mt-0.5 flex-shrink-0" />
                   <div>
                     <div className="text-xs text-[oklch(0.55_0.005_260)] uppercase tracking-wide mb-0.5">Phone</div>
-                    <a href="tel:+12695550142" className="text-sm text-white hover:text-[oklch(0.62_0.14_245)] transition-colors font-semibold">
-                      (269) 555-0142
+                    <a href="tel:+12695984008" className="text-sm text-white hover:text-[oklch(0.62_0.14_245)] transition-colors font-semibold">
+                      (269) 598-4008
                     </a>
                   </div>
                 </li>
@@ -250,16 +250,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   <Mail size={15} className="text-[oklch(0.62_0.14_245)] mt-0.5 flex-shrink-0" />
                   <div>
                     <div className="text-xs text-[oklch(0.55_0.005_260)] uppercase tracking-wide mb-0.5">Email</div>
-                    <a href="mailto:info@lakeshoreappraisals.com" className="text-sm text-white hover:text-[oklch(0.62_0.14_245)] transition-colors">
-                      info@lakeshoreappraisals.com
+                    <a href="mailto:robb@lakeshoreappraisal.com" className="text-sm text-white hover:text-[oklch(0.62_0.14_245)] transition-colors">
+                      robb@lakeshoreappraisal.com
                     </a>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <MapPin size={15} className="text-[oklch(0.62_0.14_245)] mt-0.5 flex-shrink-0" />
                   <div>
-                    <div className="text-xs text-[oklch(0.55_0.005_260)] uppercase tracking-wide mb-0.5">Service Area</div>
-                    <span className="text-sm text-white">Southwest Michigan</span>
+                    <div className="text-xs text-[oklch(0.55_0.005_260)] uppercase tracking-wide mb-0.5">Location</div>
+                    <span className="text-sm text-white">Mattawan, Michigan</span>
                   </div>
                 </li>
               </ul>
@@ -275,8 +275,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         {/* Bottom bar */}
         <div className="border-t border-[oklch(0.32_0.005_260)]">
           <div className="container py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[oklch(0.55_0.005_260)]">
-            <span>© {new Date().getFullYear()} Lake Shore Real Estate Appraisals. All rights reserved.</span>
-            <span>Licensed Michigan Certified Residential Appraiser | Southwest Michigan</span>
+            <span>&copy; {new Date().getFullYear()} Lakeshore Appraisal. All rights reserved.</span>
+            <span>Michigan Certified Residential Appraiser | Mattawan, MI | Southwest Michigan</span>
           </div>
         </div>
       </footer>
