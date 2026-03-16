@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://lakeshoreappraisals.com/sitemap.xml
+Sitemap: https://lakeshoreappraisal.com/sitemap.xml
