@@ -11,6 +11,7 @@ import {
   TrendingUp, ClipboardList, CheckCircle2, ArrowRight, Phone, ChevronLeft,
 } from "lucide-react";
 import { toast } from "sonner";
+import { submitToWebhook } from "@/lib/webhook";
 
 const appraisalTypes = [
   { id: "residential", icon: HomeIcon, title: "Residential Appraisal", desc: "Single-family, condo, or multi-family home", turnaround: "48–72 hrs" },
@@ -118,13 +119,20 @@ export default function OrderAppraisal() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
-    setTimeout(() => {
-      setSubmitting(false);
-      setSubmitted(true);
-    }, 1600);
+    await submitToWebhook({
+      name: `${form.firstName} ${form.lastName}`,
+      email: form.email,
+      phone: form.phone,
+      property_address: `${form.propertyAddress}, ${form.propertyCity}, ${form.propertyState} ${form.propertyZip}`,
+      appraisal_type: form.appraisalType,
+      message: form.additionalNotes,
+      source: "order_form",
+    });
+    setSubmitting(false);
+    setSubmitted(true);
   };
 
   const selectedType = appraisalTypes.find((t) => t.id === form.appraisalType);

@@ -16,18 +16,7 @@ async function startServer() {
       ? path.resolve(__dirname, "public")
       : path.resolve(__dirname, "..", "dist", "public");
 
-  app.use(express.json());
   app.use(express.static(staticPath));
-
-  // API endpoint for contact form submissions (email + SMS)
-  app.post("/api/contact", async (req, res) => {
-    try {
-      const { default: handleContact } = await import("./api/contact.js");
-      await handleContact(req, res);
-    } catch {
-      res.status(200).json({ success: true });
-    }
-  });
 
   // Handle client-side routing - serve index.html for all routes
   app.get("*", (_req, res) => {

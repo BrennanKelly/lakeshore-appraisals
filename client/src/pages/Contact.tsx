@@ -7,29 +7,7 @@ import { useState } from "react";
 import Layout from "@/components/Layout";
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle2 } from "lucide-react";
 import { toast } from "sonner";
-
-async function submitContactForm(data: Record<string, string>) {
-  // Send form data to serverless endpoint for email + SMS notification
-  try {
-    await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name: data.name,
-        email: data.email,
-        phone: data.phone,
-        propertyAddress: data.propertyAddress,
-        message: data.message,
-        to_email: "robb@lakeshoreappraisal.com",
-        sms_to: "+12695984008",
-        sms_body: `New appraisal request from ${data.name} at ${data.propertyAddress || "address not provided"}`,
-      }),
-    });
-  } catch {
-    // Form submission will still show success to user;
-    // the webhook/serverless function handles delivery
-  }
-}
+import { submitToWebhook } from "@/lib/webhook";
 
 export default function Contact() {
   const [form, setForm] = useState({
@@ -49,7 +27,14 @@ export default function Contact() {
       return;
     }
     setSubmitting(true);
-    await submitContactForm(form);
+    await submitToWebhook({
+      name: form.name,
+      email: form.email,
+      phone: form.phone,
+      property_address: form.propertyAddress,
+      message: form.message,
+      source: "contact_form",
+    });
     setSubmitting(false);
     setSubmitted(true);
     toast.success("Message sent! We'll respond within 1 business day.");

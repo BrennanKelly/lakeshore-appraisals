@@ -24,6 +24,7 @@ import {
   MapPin,
 } from "lucide-react";
 import { toast } from "sonner";
+import { submitToWebhook } from "@/lib/webhook";
 
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663365056642/cyMjyDqH3wWwkbVJvts4SR/hero-banner-heUM6VaLGs2WryRkvWGLji.webp";
 const APPRAISER_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663365056642/cyMjyDqH3wWwkbVJvts4SR/appraiser-working-2KHKw4WAtmSBPn4z4NGukF.webp";
@@ -111,20 +112,17 @@ export default function Home() {
       return;
     }
     setSubmitting(true);
-    try {
-      await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(quickForm),
-      });
-      toast.success("Request received! We'll contact you within 1 business day.");
-      setQuickForm({ name: "", phone: "", email: "", type: "", address: "" });
-    } catch {
-      toast.success("Request received! We'll contact you within 1 business day.");
-      setQuickForm({ name: "", phone: "", email: "", type: "", address: "" });
-    } finally {
-      setSubmitting(false);
-    }
+    await submitToWebhook({
+      name: quickForm.name,
+      email: quickForm.email,
+      phone: quickForm.phone,
+      property_address: quickForm.address,
+      appraisal_type: quickForm.type,
+      source: "quick_quote",
+    });
+    toast.success("Your appraisal request has been submitted. We will contact you shortly.");
+    setQuickForm({ name: "", phone: "", email: "", type: "", address: "" });
+    setSubmitting(false);
   };
 
   return (
