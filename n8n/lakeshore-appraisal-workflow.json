@@ -1,0 +1,239 @@
+{
+  "name": "Lakeshore Appraisal - Website Form Handler",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "appraisal-request",
+        "responseMode": "responseNode",
+        "options": {
+          "allowedOrigins": "*"
+        }
+      },
+      "id": "webhook-trigger",
+      "name": "Webhook Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [250, 300],
+      "webhookId": "appraisal-request"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ success: true, message: 'Form received' }) }}",
+        "options": {
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "Access-Control-Allow-Origin",
+                "value": "*"
+              }
+            ]
+          }
+        }
+      },
+      "id": "respond-to-webhook",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [500, 300]
+    },
+    {
+      "parameters": {
+        "mode": "manual",
+        "duplicateItem": false,
+        "assignments": {
+          "assignments": [
+            {
+              "id": "name",
+              "name": "name",
+              "value": "={{ $json.body.name || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "email",
+              "name": "email",
+              "value": "={{ $json.body.email || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "phone",
+              "name": "phone",
+              "value": "={{ $json.body.phone || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "property_address",
+              "name": "property_address",
+              "value": "={{ $json.body.property_address || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "message",
+              "name": "message",
+              "value": "={{ $json.body.message || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "appraisal_type",
+              "name": "appraisal_type",
+              "value": "={{ $json.body.appraisal_type || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "source",
+              "name": "source",
+              "value": "={{ $json.body.source || 'website' }}",
+              "type": "string"
+            },
+            {
+              "id": "submitted_at",
+              "name": "submitted_at",
+              "value": "={{ new Date().toLocaleString('en-US', { timeZone: 'America/Detroit' }) }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "format-data",
+      "name": "Format Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [500, 520]
+    },
+    {
+      "parameters": {
+        "sendTo": "robb@lakeshoreappraisal.com",
+        "subject": "=New Appraisal Request from {{ $json.name }}",
+        "emailType": "text",
+        "message": "=New appraisal inquiry received from the Lakeshore Appraisal website.\n\n----------------------------------------\nCONTACT INFORMATION\n----------------------------------------\nName: {{ $json.name }}\nEmail: {{ $json.email }}\nPhone: {{ $json.phone }}\n\n----------------------------------------\nPROPERTY DETAILS\n----------------------------------------\nProperty Address: {{ $json.property_address || 'Not provided' }}\nAppraisal Type: {{ $json.appraisal_type || 'Not specified' }}\n\n----------------------------------------\nMESSAGE\n----------------------------------------\n{{ $json.message || 'No message included' }}\n\n----------------------------------------\nMETADATA\n----------------------------------------\nForm Source: {{ $json.source }}\nSubmitted: {{ $json.submitted_at }}\n----------------------------------------",
+        "options": {
+          "replyTo": "={{ $json.email }}"
+        }
+      },
+      "id": "send-email",
+      "name": "Send Email to Robert",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [750, 400],
+      "credentials": {
+        "smtp": {
+          "id": "REPLACE_WITH_SMTP_CREDENTIAL_ID",
+          "name": "Gmail SMTP"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "from": "={{$credentials.twilioFromNumber}}",
+        "to": "+12695984008",
+        "message": "=New appraisal request\n{{ $json.name }}\n{{ $json.property_address || 'No address' }}\n{{ $json.phone }}"
+      },
+      "id": "send-sms",
+      "name": "Send SMS to Robert",
+      "type": "n8n-nodes-base.twilio",
+      "typeVersion": 1,
+      "position": [750, 600],
+      "credentials": {
+        "twilioApi": {
+          "id": "REPLACE_WITH_TWILIO_CREDENTIAL_ID",
+          "name": "Twilio"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://rest.gohighlevel.com/v1/contacts/",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"firstName\": \"{{ $json.name.split(' ')[0] || $json.name }}\",\n  \"lastName\": \"{{ $json.name.split(' ').slice(1).join(' ') || '' }}\",\n  \"email\": \"{{ $json.email }}\",\n  \"phone\": \"{{ $json.phone }}\",\n  \"address1\": \"{{ $json.property_address || '' }}\",\n  \"source\": \"Website Form\",\n  \"tags\": [\"website-lead\", \"{{ $json.appraisal_type || 'general' }}\"],\n  \"customField\": {\n    \"appraisal_type\": \"{{ $json.appraisal_type || '' }}\",\n    \"message\": \"{{ $json.message || '' }}\",\n    \"form_source\": \"{{ $json.source }}\"\n  }\n}",
+        "options": {}
+      },
+      "id": "gohighlevel-create-contact",
+      "name": "Create GoHighLevel Contact",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [750, 800],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "REPLACE_WITH_GHL_CREDENTIAL_ID",
+          "name": "GoHighLevel API Key"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "note-setup",
+      "name": "Setup Instructions",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [250, 100],
+      "notes": "SETUP INSTRUCTIONS:\n\n1. SMTP Credentials: Go to Credentials > Add > SMTP. Use Gmail (smtp.gmail.com:465, SSL) or your email provider.\n\n2. Twilio Credentials: Go to Credentials > Add > Twilio. Enter Account SID, Auth Token, and From Number.\n\n3. GoHighLevel: Go to Credentials > Add > Header Auth. Set header name to 'Authorization' and value to 'Bearer YOUR_GHL_API_KEY'.\n\n4. Activate the workflow and copy the webhook URL.\n\n5. Set VITE_N8N_WEBHOOK_URL in your .env file or update client/src/lib/webhook.ts with the URL."
+    }
+  ],
+  "connections": {
+    "Webhook Trigger": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Format Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Data": {
+      "main": [
+        [
+          {
+            "node": "Send Email to Robert",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Send SMS to Robert",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Create GoHighLevel Contact",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "name": "Lakeshore Appraisal",
+      "id": "1"
+    }
+  ],
+  "triggerCount": 1,
+  "versionId": "1"
+}
