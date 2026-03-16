@@ -1,5 +1,5 @@
 /* ==========================================================================
-   SERVICES PAGE — Lake Shore Real Estate Appraisals
+   SERVICES PAGE — Lakeshore Appraisal
    SEO: residential appraisal Kalamazoo, divorce appraisal Michigan, PMI removal appraisal,
    estate appraisal Battle Creek, commercial appraisal Southwest Michigan
    ========================================================================== */
@@ -37,7 +37,7 @@ const services = [
     title: "Divorce Appraisals",
     subtitle: "Court-Admissible Property Valuations",
     seoKeywords: "divorce appraisal Michigan, divorce property valuation Kalamazoo",
-    desc: `Divorce proceedings require impartial, court-admissible property valuations that both parties can trust. Lake Shore Real Estate Appraisals provides neutral, objective appraisals for marital property division across Kalamazoo County, Calhoun County, and Van Buren County. Our reports are prepared to withstand legal scrutiny and are accepted by Michigan family courts.`,
+    desc: `Divorce proceedings require impartial, court-admissible property valuations that both parties can trust. Lakeshore Appraisal provides neutral, objective appraisals for marital property division across Kalamazoo County, Calhoun County, and Van Buren County. Our reports are prepared to withstand legal scrutiny and are accepted by Michigan family courts.`,
     uses: [
       "Marital home valuation for equitable distribution",
       "Retroactive date-of-separation appraisals",
@@ -69,7 +69,7 @@ const services = [
     title: "PMI Removal Appraisals",
     subtitle: "Eliminate Private Mortgage Insurance",
     seoKeywords: "PMI removal appraisal Michigan, remove PMI Kalamazoo, private mortgage insurance appraisal",
-    desc: `If your home has appreciated in value since you purchased it, you may be eligible to cancel your Private Mortgage Insurance (PMI) and save hundreds of dollars per month. Lake Shore Real Estate Appraisals provides lender-accepted appraisals to document your home's current market value and support your PMI cancellation request. Most lenders require 20% equity to remove PMI.`,
+    desc: `If your home has appreciated in value since you purchased it, you may be eligible to cancel your Private Mortgage Insurance (PMI) and save hundreds of dollars per month. Lakeshore Appraisal provides lender-accepted appraisals to document your home's current market value and support your PMI cancellation request. Most lenders require 20% equity to remove PMI.`,
     uses: [
       "PMI cancellation with your lender",
       "Documenting increased home equity",
@@ -102,7 +102,7 @@ const services = [
     title: "Lakefront Property Appraisals",
     subtitle: "Lake Michigan & Inland Lake Specialists",
     seoKeywords: "lakefront appraisal South Haven Michigan, Lake Michigan property appraisal, waterfront property value Michigan",
-    desc: `Lakefront and waterfront properties require specialized appraisal expertise. Lake Shore Real Estate Appraisals has deep experience valuing Lake Michigan shoreline properties, inland lake cottages, and waterfront estates throughout Van Buren County, Allegan County, and Berrien County. We understand the unique factors that influence waterfront value — frontage, water quality, dock rights, and seasonal access.`,
+    desc: `Lakefront and waterfront properties require specialized appraisal expertise. Lakeshore Appraisal has deep experience valuing Lake Michigan shoreline properties, inland lake cottages, and waterfront estates throughout Van Buren County, Allegan County, and Berrien County. We understand the unique factors that influence waterfront value — frontage, water quality, dock rights, and seasonal access.`,
     uses: [
       "Lake Michigan shoreline properties",
       "Inland lake cottages and cabins",
@@ -118,7 +118,7 @@ const services = [
     title: "Property Tax Appeal Appraisals",
     subtitle: "Challenge Your Assessment",
     seoKeywords: "property tax appeal appraisal Michigan, tax assessment appeal Kalamazoo, over-assessed property Michigan",
-    desc: `If your property has been over-assessed by your local municipality, you may be paying more in property taxes than you should. Lake Shore Real Estate Appraisals provides independent appraisals to document your property's true market value and support your tax appeal before the Michigan Tax Tribunal or local Board of Review. Our reports provide the market evidence needed to successfully challenge inflated assessments.`,
+    desc: `If your property has been over-assessed by your local municipality, you may be paying more in property taxes than you should. Lakeshore Appraisal provides independent appraisals to document your property's true market value and support your tax appeal before the Michigan Tax Tribunal or local Board of Review. Our reports provide the market evidence needed to successfully challenge inflated assessments.`,
     uses: [
       "Michigan Tax Tribunal appeals",
       "Local Board of Review hearings",
@@ -158,9 +158,8 @@ export default function Services() {
             <span className="text-[oklch(0.72_0.12_245)]">in Southwest Michigan</span>
           </h1>
           <p className="text-[oklch(0.78_0.005_260)] max-w-2xl leading-relaxed">
-            From residential home appraisals to complex commercial valuations, Lake Shore Real Estate
-            Appraisals provides certified, USPAP-compliant reports for every appraisal need across
-            Kalamazoo, Grand Rapids, Battle Creek, South Haven, and surrounding communities.
+            From residential home appraisals to complex commercial valuations, Lakeshore Appraisal provides certified, USPAP-compliant reports for every appraisal need across
+            Mattawan, Kalamazoo, Portage, Paw Paw, and surrounding communities.
           </p>
         </div>
       </section>
@@ -276,7 +275,7 @@ export default function Services() {
             Ready to Order Your Appraisal?
           </h2>
           <p className="text-white/80 mb-8 max-w-lg mx-auto">
-            Contact Lake Shore Real Estate Appraisals today. We serve all of Southwest Michigan
+            Contact Lakeshore Appraisal today. We serve all of Southwest Michigan
             with fast, accurate, and certified property valuations.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
@@ -284,9 +283,9 @@ export default function Services() {
               Order Online
               <ArrowRight size={16} />
             </Link>
-            <a href="tel:+12695550142" className="btn-outline-white">
+            <a href="tel:+12695984008" className="btn-outline-white">
               <Phone size={16} />
-              (269) 555-0142
+              (269) 598-4008
             </a>
           </div>
         </div>

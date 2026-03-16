@@ -16,6 +16,7 @@ build/
 !robots.txt
 !logo-lighthouse.svg
 !.htaccess
+!sitemap.xml
 
 # Environment variables
 .env

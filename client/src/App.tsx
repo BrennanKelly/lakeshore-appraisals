@@ -10,6 +10,10 @@ import ServiceAreas from "./pages/ServiceAreas";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import OrderAppraisal from "./pages/OrderAppraisal";
+import KalamazooAppraisal from "./pages/KalamazooAppraisal";
+import PortageAppraisal from "./pages/PortageAppraisal";
+import PawPawAppraisal from "./pages/PawPawAppraisal";
+import MattawanAppraisal from "./pages/MattawanAppraisal";
 
 function Router() {
   return (
@@ -20,6 +24,10 @@ function Router() {
       <Route path="/about" component={About} />
       <Route path="/contact" component={Contact} />
       <Route path="/order-appraisal" component={OrderAppraisal} />
+      <Route path="/kalamazoo-home-appraisal" component={KalamazooAppraisal} />
+      <Route path="/portage-home-appraisal" component={PortageAppraisal} />
+      <Route path="/paw-paw-home-appraisal" component={PawPawAppraisal} />
+      <Route path="/mattawan-home-appraisal" component={MattawanAppraisal} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>
